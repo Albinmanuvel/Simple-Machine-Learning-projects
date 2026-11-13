@@ -1,11 +1,14 @@
-# cars
-A simple Data mining project aimed at predicting the prices of car based on the engine type and car type from an unorganised data set of car sales in US from 1990 -2010 .
+# Car price prediction
 
-The car price dataset includes information about various cars, such as make, model, year, mileage, fuel type, engine size, and other relevant features. This dataset is valuable for analyzing and predicting car prices based on different factors, facilitating insights into the automotive market and consumer preferences.
+Predicting car prices from engine and body specs. `CarPrice.csv` has 205 cars x 26 columns (no year or mileage column).
 
-26 columns needed for our purpose , rest all unwanted columns are removed for model training .
-And our target variable is price .
+`cars.py` selects features with Welch ANOVA and Pearson correlation, then compares four regressors on a 70/30 split (`random_state=42`).
 
-Ensemble Learning: Random Forest is an ensemble learning method that combines multiple decision trees to make predictions. It leverages the wisdom of crowds, reducing overfitting and improving generalization compared to a single decision tree.
-Handles Missing Values
-Tuning Flexibility: Random Forest has various hyperparameters that can be tuned to optimize its performance for a specific dataset.
+| Model | Test R2 |
+|---|---|
+| Linear Regression | 0.849 |
+| Decision Tree | 0.872 |
+| XGBoost RF | 0.919 |
+| Random Forest | 0.941 |
+
+Run: `pip install pandas numpy matplotlib scipy pingouin scikit-learn xgboost` then `python cars.py`.
